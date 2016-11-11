@@ -12,6 +12,7 @@
         <module>RomanNumbersConverter</module>
         <module>Tenis</module>
         <module>VendingMachine</module>
+        <module>VendingMachineCoinCase</module>
     </modules>
 
 

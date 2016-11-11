@@ -44,7 +44,7 @@ public class VendingMachineTest {
 
     @Test
     public void shouldReturnQuarterIfInsertedAndReturnCoinsActionPerformed() {
-        when(coinCase.returnCoins()).thenReturn(Collections.singletonList("Q"));
+        when(coinCase.returnCoins()).thenReturn(Collections.singletonList(Coin.Quarter));
 
         assertThat(machine.coinReturn()).isEqualTo("Q");
     }
@@ -76,17 +76,17 @@ public class VendingMachineTest {
 
     @Test
     public void shouldReturnMoneyIfNotEnoughMoneyInsertedAndGetAActionPerformed() {
-        List<String> coins = Arrays.asList("Q", "D", "C");
+        List<Coin> coins = Arrays.asList(Coin.Quarter, Coin.Dollar, Coin.Dime);
         when(coinCase.returnCoins()).thenReturn(coins);
 
-        assertThat(machine.getA()).isEqualTo("Q, D, C");
+        assertThat(machine.getA()).isEqualTo("Q, D, d");
     }
 
     @Test
     public void shouldReturnProductBAndChangeIfMoreMoneyInsertedAndGetAActionPerformed() {
         when(productStorage.getProductPrice("B")).thenReturn(1.0);
         when(coinCase.isEnoughMoney(1.0)).thenReturn(true);
-        when(coinCase.returnCoins()).thenReturn(Collections.singletonList("Q"));
+        when(coinCase.returnCoins()).thenReturn(Collections.singletonList(Coin.Quarter));
 
         assertThat(machine.getB()).isEqualTo("B, Q");
     }

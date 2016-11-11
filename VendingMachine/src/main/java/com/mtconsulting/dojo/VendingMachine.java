@@ -1,5 +1,7 @@
 package com.mtconsulting.dojo;
 
+import java.util.stream.Collectors;
+
 public class VendingMachine {
     private static final String PRODUCT_C = "C";
     private static final String PRODUCT_B = "B";
@@ -13,7 +15,7 @@ public class VendingMachine {
     }
 
     public String coinReturn() {
-        String s = coinCase.returnCoins().toString();
+        String s = coinCase.returnCoins().stream().map(Coin::getSymbol).collect(Collectors.toList()).toString();
         return s.substring(1, s.length() - 1);
     }
 

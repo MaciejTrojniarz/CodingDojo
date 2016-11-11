@@ -3,9 +3,9 @@ package com.mtconsulting.dojo;
 import java.util.List;
 
 public interface CoinCase {
-    List<String> returnCoins();
+    List<Coin> returnCoins();
 
-    void charge(double productPrice);
+    void charge(double chargeAmount);
 
     boolean isEnoughMoney(double requiredAmount);
 
@@ -16,4 +16,5 @@ public interface CoinCase {
     void insertNickel();
 
     void insertDime();
+
 }
